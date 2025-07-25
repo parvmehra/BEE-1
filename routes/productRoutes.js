@@ -15,8 +15,8 @@ router.get('/', async (req, res) => {
 
         let query = {};
         if (search && search.trim()) {
-            search = search.trim(); // Remove leading/trailing whitespace
-            query.name = { $regex: search, $options: 'i' }; // Case-insensitive
+            search = search.trim(); 
+            query.name = { $regex: search, $options: 'i' }; 
         }
 
         if (lowStock === 'true') {
@@ -42,25 +42,6 @@ router.get('/', async (req, res) => {
     }
 });
 
-
-
-
-//Get Product by productId
-// router.get('/:productId', async (req, res) => {
-//     try {
-//         const { productId } = req.params;
-//         const product = await Product.findOne({ productId: productId });
-
-//         if (!product) {
-//             return res.status(404).json({ message: `Product with ID ${productId} not found` });
-//         }
-
-//         res.status(200).json(product);
-//     } catch (error) {
-//         console.log(error.message);
-//         res.status(400).json({ message: error.message });
-//     }
-// });
 
 //form to add a product
 router.get('/add',(req,res)=>{
